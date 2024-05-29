@@ -1,3 +1,4 @@
+//Implementazione in C dell'algoritmo del dual pivot Quicksort di Vladimir Yaroslavskiy
 #include <stdio.h>
 #include <time.h>
 #include <stdbool.h>
