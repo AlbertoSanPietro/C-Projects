@@ -22,7 +22,7 @@
 // -fno-strict-overflow 
 // This is the REQUIRED flag for most level of optimizations, as during static
 // compilation checks such as "a+200 >a" get removed due them being always true
-// unless overflow occurs. gcc -O3 is infamous for such optimizations, which
+// unless signed overflow occurs. gcc -O3 is infamous for such optimizations, which
 // are disabled with this flag.
 // If the flag is unusable one could use INT_MAX or similar macros contained in
 // limits.h and rewrite the checks.
@@ -38,10 +38,10 @@ int main(void)
     int vett[MAXL];
     double time1, timedif;
 
-    int n = MAXL;
+    unsigned int n = 0;
     printf("Insert the size of the array\n");
     scanf("%d", &n);
-    if(n <=0 || n + 100 < n) {
+    if(n>n-1 || n> 4096) {
       puts("EINVAL");
       return(FAILURE);
     }
