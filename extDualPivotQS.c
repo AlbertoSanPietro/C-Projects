@@ -39,18 +39,22 @@ int main(void)
     double time1, timedif;
 
     unsigned int n = 0;
-    printf("Insert the size of the array\n");
-    scanf("%d", &n);
-    if(n>n-1 || n> 4096) {
-      puts("EINVAL");
-      return(FAILURE);
+        printf("Insert the size of the array\n");
+    if (scanf("%u", &n) != 1) {  
+        puts("EINVAL");
+        return FAILURE;
+    }
+
+    if (n == 0 || n > MAXL) {  // Bounds check
+        puts("EINVAL");
+        return FAILURE;
     }
 
     printf("\nInsert the elements of the array\n");
-    for(int i = 0; i < n; i++) {
-        scanf("%d", &vett[i]);
-        if (&vett[i] +200 < &vett[i]){
-          return FAILURE;
+    for (unsigned int i = 0; i < n; i++) {
+        if (scanf("%d", &vett[i]) != 1) { 
+            puts("Invalid element");
+            return FAILURE;
         }
     }
 
