@@ -20,12 +20,10 @@
 // bitwise operations nor situation in which bits can be moved out of their
 // structure
 // -fno-strict-overflow 
-// This is the REQUIRED flag for most level of optimizations, as during static
-// compilation checks such as "a+200 >a" get removed due them being always true
-// unless signed overflow occurs. gcc -O3 is infamous for such optimizations, which
-// are disabled with this flag.
-// If the flag is unusable one could use INT_MAX or similar macros contained in
-// limits.h and rewrite the checks.
+// This is often the required flag for most level of optimization, as it allows
+// for overflow checks, which are UB in ANSI C
+// gcc -O3 is infamous for optimizing away checks made after the overflow
+// The checks here are unaffected by these flags, as OF cannot happen here
 
 void dualPivotQS(int[], int, int);
 void swap(int[], int, int);
