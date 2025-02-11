@@ -4,7 +4,8 @@
 #include <stdint.h>
 
 #define MAXL 4096
-#define FAILURE -1
+#define FAILURE 1
+#define SUCCESS 0
 
 //An implementation of the dual pivot quicksort by Vladimir Yaroslavskiy 
 //with insertion sort for arrays of a smaller size (less than 32)
