@@ -1,4 +1,5 @@
 //Albero binario per il conteggio delle parole ripetute, ordinate per lunghezza. A sx se più corte della parola prec, a dx se più lunghe, sulla base di K&R
+//I commenti sono purtroppo in italiano per una questione didattica
 #include <stdio.h>
 #include <ctype.h>
 #include <string.h>
