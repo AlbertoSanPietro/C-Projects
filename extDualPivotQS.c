@@ -5,7 +5,6 @@
 
 #define MAXL 4096
 #define FAILURE 1
-#define SUCCESS 0
 
 //An implementation of the dual pivot quicksort by Vladimir Yaroslavskiy 
 //with insertion sort for arrays of a smaller size (less than 32)
@@ -129,7 +128,7 @@ void dualPivotQS(int v[], int sx, int dx)
     dualPivotQS(v, less + 1, great - 1);
     dualPivotQS(v, great + 1, dx);
 }
-/*
+
 void qsort(int v[], int left, int right)
 {
     int i = 0, last;
@@ -146,13 +145,13 @@ void qsort(int v[], int left, int right)
     qsort(v, left, last-1);
     qsort (v, last+1, right);
 }
-*/
+
 
 
 void insSort(int v[], int sx, int dx)
 {
     int n = dx - sx + 1;
-    if (n < 3)
+    if (n < 16)
     {
         for (int i = sx; i <= dx; i++)
         {
@@ -164,6 +163,8 @@ void insSort(int v[], int sx, int dx)
                 }
             }
         }
+    } else if(n < 32) {
+        qsort(v, sx, dx);
     }
     else
     {
